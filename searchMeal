@@ -1,0 +1,19 @@
+if(msg == "/급식"){
+	replier.reply("급식검색 명령어 도움말입니다.\n\n/급식검색 학교이름/날짜 로 검색할수있습니다.")
+	replier.reply("예시:/급식검색 ~초등학교/18")
+	}
+
+try{
+if (msg.indexOf("/급식검색")==0){ 
+   var day = new Date(); 
+   var m = (new Date().getMonth() + 1); 
+   var d = msg.substr(6).split("/")[1];
+   var pap = (m+"월 "+d+"일 [급식]"); 
+   var u= Utils.getWebText("https://m.search.naver.com/search.naver?query="+msg.substr(6).split("/")[0]+"급식").replace(/(<([^>]+)>)/g,"").split(m+"월 "+d+"일 [중식]")[1].split(m+"월")[0].replace(/ /g,"").trim();
+   replier.reply("["+msg.substr(6).split("/")[0]+"]\n\n"+pap+"급식결과를 가져왔어요!\n"+u+"\n\n※숫자는 식품 알레르기 식별 번호입니다.※\n1.난류 2.우유 3.메밀 4.땅콩 5.대두 6.밀 7.고등어 8.게 9.새우 10.돼지고기 11.복숭아 12.토마토 13.아황산류 14.호두 15.닭고기 16.쇠고기 17.오징어 18.조개류(굴,전복,홍합 포함)"); 
+   } 
+}
+catch(e)
+{
+   replier.reply("학교 정보가 없거나 식단이 없습니다.");
+   }
