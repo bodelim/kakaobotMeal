@@ -7,6 +7,10 @@
 
 
 ### 사용법
+- 카카오톡에 봇을 적용시켜줄 수 있는 어플을 다운합니다
+- 해당 소스를 적용하고 컴파일 시킵니다
+
+### 참고
 ```
 function response(room, msg, sender, isGroupChat, replier, imageDB) {
 msg = msg.trim();
